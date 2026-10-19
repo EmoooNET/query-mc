@@ -1,0 +1,33 @@
+{
+  "name": "query-mc",
+  "version": "1.0.0",
+  "description": "A typed ESM client for the Minecraft Java Edition Query protocol",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "src", "README.md"],
+  "sideEffects": false,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:types": "tsc -p test/tsconfig.json",
+    "test": "tsc -p tsconfig.json && tsc -p test/tsconfig.json && node --test test/*.test.mjs",
+    "prepack": "tsc -p tsconfig.json",
+    "prestart": "tsc -p tsconfig.json",
+    "start": "node examples/query.mjs"
+  },
+  "keywords": ["minecraft", "query", "gamespy4", "udp", "typescript", "esm"],
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0",
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "typescript": "^7.0.2"
+  }
+}
